@@ -203,6 +203,16 @@
 		//makes the calculation of discount physically visible adding the $ sign and decimals.
 		document.querySelector("#discount").innerHTML = "$" + discount.toFixed(2);
 
+		// tax exists
+		let tax;
+		
+		//tax is 12% of the grand total
+		tax = grand_total * .12;
+
+		//makes the calculation of tax physically visible within the tax ID adding the $ sign and decimals.
+		document.querySelector("#tax").innerHTML = "$" + tax.toFixed(2);
+
+
             /*
 
                 Use the following steps to complete your assignment.
