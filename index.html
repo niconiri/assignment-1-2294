@@ -97,14 +97,14 @@
 
 	    function calculate() {
 
-			// must have line total and grand total exist and start from zero
+			// must have line total, grand total exist and start from zero
 			let line_total = 0;
 			let grand_total = 0;
 			
 			// making the line quantity value exist
 			const line_1_quantity = document.querySelector("#line-1-quantity").value;
 
-			// making the line price  value exist
+			// making the line price value exist
 			const line_1_price = document.querySelector("#line-1-price").value;
 
 			// line_total = total of quantity x price 
@@ -187,6 +187,22 @@
 
 			// this makes the grandtotal visible in the sub-total section, also adding $ sign and decimals with toFixed(2)
 			document.querySelector("#sub-total").innerHTML = "$" + grand_total.toFixed(2);
+
+		// discount exists
+		let discount;
+		//if the grand total is equal or greater than 250 then...
+		if (grand_total >= 250) {
+
+		//10 percent of the grand total = discount
+			discount = grand_total * 0.1;
+		// if less than 250, discount is 0
+		} else {
+			discount = 0;
+		}
+
+		//makes the calculation of discount physically visible adding the $ sign and decimals.
+		document.querySelector("#discount").innerHTML = "$" + discount.toFixed(2);
+
             /*
 
                 Use the following steps to complete your assignment.
