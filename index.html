@@ -93,7 +93,12 @@
 	<div>NOTE: discounts of 10% are given to orders over $250</div>
 
 	<script>
+		//button to be applied later for event listener
 		const add_btn = document.querySelector("#calculate");
+		
+		//adds the variables for discount and tax for later
+		const discount = 0.1
+		const tax = 0.12
 
 	    function calculate() {
 
@@ -203,14 +208,8 @@
 		//makes the calculation of discount physically visible adding the $ sign and decimals.
 		document.querySelector("#discount").innerHTML = "$" + discount.toFixed(2);
 
-		// tax exists
-		let tax;
-		
-		//tax is 12% of the grand total
-		tax = grand_total * .12;
-
 		//makes the calculation of tax physically visible within the tax ID adding the $ sign and decimals.
-		document.querySelector("#tax").innerHTML = "$" + tax.toFixed(2);
+		document.querySelector("#tax").innerHTML = "$" grand_total + tax.toFixed(2);
 
 		//final total exists
 		let final_total;
@@ -218,7 +217,7 @@
 		//final total is the grand total + the discount + tax
 		final_total = grand_total + discount + tax;
 
-		//the final total being visible in #total with $ sign and decimals
+		//the final total being visible in #total with $ sign and
 		document.querySelector("#Total").innerHTML = "$" + final_total.toFixed(2);
 
             /*
