@@ -212,6 +212,14 @@
 		//makes the calculation of tax physically visible within the tax ID adding the $ sign and decimals.
 		document.querySelector("#tax").innerHTML = "$" + tax.toFixed(2);
 
+		//final total exists
+		let final_total;
+
+		//final total is the grand total + the discount + tax
+		final_total = grand_total + discount + tax;
+
+		//the final total being visible in #total with $ sign and decimals
+		document.querySelector("#Total").innerHTML = "$" + final_total.toFixed(2);
 
             /*
 
