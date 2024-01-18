@@ -93,12 +93,14 @@
 	<div>NOTE: discounts of 10% are given to orders over $250</div>
 
 	<script>
+		//Nicole Espiritu A01380778 Assignment 1
+
 		//button to be applied later for event listener
 		const add_btn = document.querySelector("#calculate");
 		
 		//adds the variables for discount and tax for later
-		const discount = 0.1
-		const tax = 0.12
+		const discount = 0.1;
+		const tax = 0.12;
 
 	    function calculate() {
 
@@ -106,10 +108,10 @@
 			let line_total = 0;
 			let grand_total = 0;
 			
-			// making the line quantity value exist
+			// making the line quantity value exist in #line-1-quantity
 			const line_1_quantity = document.querySelector("#line-1-quantity").value;
 
-			// making the line price value exist
+			// making the line price value exist in #line-1-price
 			const line_1_price = document.querySelector("#line-1-price").value;
 
 			// line_total = total of quantity x price 
@@ -123,10 +125,10 @@
 
 			// Line-2
 			
-			// making the line quantity value exist
+			// making the line quantity value exist in #line-2-quantity
 			const line_2_quantity = document.querySelector("#line-2-quantity").value;
 
-			// making the line price  value exist
+			// making the line price  value exist in #line-2-price
 			const line_2_price = document.querySelector("#line-2-price").value;
 
 			// line_total = total of quantity x price 
@@ -140,10 +142,10 @@
 
 			// Line-3
 			
-			// making the line quantity value exist
+			// making the line quantity value exist in #line-3-quantity
 			const line_3_quantity = document.querySelector("#line-3-quantity").value;
 
-			// making the line price  value exist
+			// making the line price  value exist in #line-3-price
 			const line_3_price = document.querySelector("#line-3-price").value;
 
 			// line_total = total of quantity x price 
@@ -190,53 +192,43 @@
 			document.querySelector("#line-5").innerHTML = "$" + line_total.toFixed(2);
 
 
-			// this makes the grandtotal visible in the sub-total section, also adding $ sign and decimals with toFixed(2)
+			// this makes the grand_total visible in the sub-total section, also adding $ sign and decimals with toFixed(2)
 			document.querySelector("#sub-total").innerHTML = "$" + grand_total.toFixed(2);
 
-		// discount exists
-		let discount;
-		//if the grand total is equal or greater than 250 then...
-		if (grand_total >= 250) {
+			//making a discount total value exist
+			let discount_total;
 
-		//10 percent of the grand total = discount
-			discount = grand_total * 0.1;
-		// if less than 250, discount is 0
-		} else {
-			discount = 0;
-		}
+			//if the grand total is equal or greater than 250 then...
+			if (grand_total >= 250) {
 
-		//makes the calculation of discount physically visible adding the $ sign and decimals.
-		document.querySelector("#discount").innerHTML = "$" + discount.toFixed(2);
+				//10 percent of the grand total = discount
+				discount_total = grand_total * discount
+				// if less than 250, discount is 0
+				} else {
+				discount_total = 0;
+			}
 
-		//makes the calculation of tax physically visible within the tax ID adding the $ sign and decimals.
-		document.querySelector("#tax").innerHTML = "$" grand_total + tax.toFixed(2);
+			//makes the calculation of discount physically visible adding the $ sign and decimals.
+			document.querySelector("#discount").innerHTML = "$" + discount_total.toFixed(2);
+		
+			//making a tax total value exist
+			let tax_total;
 
-		//final total exists
-		let final_total;
+			//12% of the grand total = tax
+			tax_total = grand_total * tax;
 
-		//final total is the grand total + the discount + tax
-		final_total = grand_total + discount + tax;
+			//makes the calculation of tax physically visible within the tax ID adding the $ sign and decimals.
+			document.querySelector("#tax").innerHTML = "$" + tax_total.toFixed(2);
 
-		//the final total being visible in #total with $ sign and
-		document.querySelector("#Total").innerHTML = "$" + final_total.toFixed(2);
+			//final total value exists
+			let final_total;
 
-            /*
+			//final total is the grand total + the discount + tax totals
+			final_total = grand_total + discount_total + tax_total;
 
-                Use the following steps to complete your assignment.
+			//the final total being visible in #total with $ sign and
+			document.querySelector("#Total").innerHTML = "$" + final_total.toFixed(2);
 
-                @NOTE: Do not include these comments in your final submission. 
-                       Your final submission MUST include your own comments.
-
-                1. Retrieve the quantities & price for each line
-                2. Calculate the total for each line
-                3. Display each line total to the screen (Be sure to display the result to two decimal places)
-                4. Keep a running total for all lines
-                5. Display the sub-total to screen
-                6. Calculate if the discount should be applied, if so display the discount value to the screen
-                7. Calculate the tax on the sub-total
-                8. Display the calculated to the screen to two decimal places
-                
-            */
 	    }
 	
 		// need and eventlistener to make sure everything calculates when you click the button
