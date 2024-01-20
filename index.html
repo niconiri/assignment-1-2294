@@ -208,6 +208,9 @@
 				discount_total = 0;
 			}
 
+			//take discount total out of the grand total
+			grand_total = grand_total - discount_total
+
 			//makes the calculation of discount physically visible adding the $ sign and decimals.
 			document.querySelector("#discount").innerHTML = "$" + discount_total.toFixed(2);
 		
@@ -223,8 +226,8 @@
 			//final total value exists
 			let final_total;
 
-			//final total is the grand total + the discount + tax totals
-			final_total = grand_total + discount_total + tax_total;
+			//final total is the grand total + tax totals
+			final_total = grand_total + tax_total;
 
 			//the final total being visible in #total with $ sign and
 			document.querySelector("#Total").innerHTML = "$" + final_total.toFixed(2);
