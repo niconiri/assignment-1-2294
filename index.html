@@ -194,19 +194,11 @@
 
 			// this makes the grand_total visible in the sub-total section, also adding $ sign and decimals with toFixed(2)
 			document.querySelector("#sub-total").innerHTML = "$" + grand_total.toFixed(2);
+		
 
-			//making a discount total value exist
-			let discount_total;
 
-			//if the grand total is equal or greater than 250 then...
-			if (grand_total >= 250) {
-
-				//10 percent of the grand total = discount
-				discount_total = grand_total * discount
-				// if less than 250, discount is 0
-				} else {
-				discount_total = 0;
-			}
+			//the discount total exists now and if the grand total is greater than or equal to 250 then the discount_total = the grand total x discount (.10). if false then discount_total = 0
+			let discount_total = grand_total >= 250 ? grand_total * discount : 0;
 
 			//take discount total out of the grand total
 			grand_total = grand_total - discount_total
@@ -214,6 +206,8 @@
 			//makes the calculation of discount physically visible adding the $ sign and decimals.
 			document.querySelector("#discount").innerHTML = "$" + discount_total.toFixed(2);
 		
+
+			
 			//making a tax total value exist
 			let tax_total;
 
